@@ -1,8 +1,8 @@
 import { NoteData } from "./NoteData";
 import { Tag } from "./Tag";
 
-export type NoteFormProps = {
-  onSubmit: (data: NoteData) => void;
+export type EditNoteProps = {
+  onSubmit: (id: string, data: NoteData) => void;
   onAddTag: (tag: Tag) => void;
   availableTags: Tag[];
-} & Partial<NoteData>;
+};
