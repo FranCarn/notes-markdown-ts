@@ -1,5 +1,5 @@
-import { NoteData } from "./NoteData";
-import { Tag } from "./Tag";
+import { NoteData } from "../../../types/NoteData";
+import { Tag } from "../../../types/Tag";
 
 export type NewNoteProps = {
   onSubmit: (data: NoteData) => void;

@@ -1,11 +1,11 @@
-import { Note } from "./Note";
+import { Note } from "../../../types/Note";
 import { NoteCardProps } from "./NoteCardProps";
-import { RawNote } from "./RawNote";
-import { Tag } from "./Tag";
+import { RawNote } from "../../../types/RawNote";
+import { Tag } from "../../../types/Tag";
 
 export type NoteListProps = {
   availableTags: Tag[];
-  notes: NoteCardProps[];
+  notes?: NoteCardProps[];
   onDeleteTag: (id: string) => void;
   onUpdateTag: (id: string, label: string) => void;
 };

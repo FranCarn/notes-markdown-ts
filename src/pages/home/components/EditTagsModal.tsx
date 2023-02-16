@@ -1,5 +1,6 @@
 import { Button, Col, Form, Modal, Row, Stack } from "react-bootstrap";
-import { EditTagsModalProps } from "./types";
+import { Tag } from "../../../types";
+import { EditTagsModalProps } from "../types/EditTagsModalProps";
 
 export const EditTagsModal = ({
   availableTags,
@@ -16,20 +17,20 @@ export const EditTagsModal = ({
       <Modal.Body>
         <Form>
           <Stack gap={2}>
-            {availableTags.map((tag) => {
+            {availableTags.map((tag: Tag) => {
               return (
                 <Row key={tag.id}>
                   <Col>
                     <Form.Control
                       type="text"
-                      value={tag?.label}
-                      onChange={(e) => onUpdateTag(tag?.id, e.target.value)}
+                      value={tag.label}
+                      onChange={(e) => onUpdateTag(tag.id, e.target.value)}
                     />
                   </Col>
                   <Col xs="auto">
                     <Button
                       variant="outline-danger"
-                      onClick={() => onDeleteTag(tag?.id)}
+                      onClick={() => onDeleteTag(tag.id)}
                     >
                       &times;
                     </Button>

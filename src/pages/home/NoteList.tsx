@@ -1,10 +1,11 @@
-import React, { useState, useMemo } from "react";
+import { useState, useMemo } from "react";
 import { Button, Col, Form, Row, Stack } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ReactSelect from "react-select";
-import { EditTagsModal } from "./EditTagsModal";
-import { NoteCard } from "./NoteCard";
-import { NoteListProps, Tag } from "./types";
+import { EditTagsModal } from "./components/EditTagsModal";
+import { NoteCard } from "./components/NoteCard";
+import { Tag } from "../../types";
+import { NoteListProps } from "./types/NoteListProps";
 
 export const NoteList = ({
   availableTags,
@@ -18,7 +19,7 @@ export const NoteList = ({
     useState<boolean>(false);
 
   const filteredNotes = useMemo(() => {
-    return notes.filter((note) => {
+    return notes?.filter((note) => {
       return (
         (!title || note.title.toLowerCase().includes(title.toLowerCase())) &&
         (!selectedTags.length ||
@@ -94,7 +95,7 @@ export const NoteList = ({
         </Row>
       </Form>
       <Row xs={1} sm={2} lg={3} xl={4} className="g-3">
-        {filteredNotes.map((note) => (
+        {filteredNotes?.map((note) => (
           <Col key={note.id}>
             <NoteCard id={note.id} title={note.title} tags={note.tags} />
           </Col>

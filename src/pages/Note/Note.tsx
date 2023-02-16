@@ -1,9 +1,8 @@
-import React from "react";
 import { Badge, Button, Col, Row, Stack } from "react-bootstrap";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { Link, useNavigate } from "react-router-dom";
-import { NoteProps } from "./types";
-import { useNote } from "./utils/useNote";
+import { useNote } from "../../hooks/useNote";
+import { NoteProps } from "./types/NoteProps";
 
 export const Note = ({ onDelete }: NoteProps) => {
   const { title, tags, id, markdown } = useNote();

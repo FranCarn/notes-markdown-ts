@@ -1,7 +1,6 @@
-import React from "react";
-import { NoteForm } from "./NoteForm";
-import { EditNoteProps } from "./types";
-import { useNote } from "./utils/useNote";
+import { NoteForm } from "../../components/NoteForm";
+import { useNote } from "../../hooks/useNote";
+import { EditNoteProps } from "./types/EditNoteProps";
 
 export const EditNote = ({
   onSubmit,

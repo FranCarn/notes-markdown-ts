@@ -1,8 +1,7 @@
-import React from "react";
 import { Badge, Card, Stack } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { NoteCardProps } from "./types";
-import styles from "./styles/noteList.module.css";
+import styles from "../../../styles/noteList.module.css";
+import { NoteCardProps } from "../types/NoteCardProps";
 
 export const NoteCard = ({ id, title, tags }: NoteCardProps) => {
   return (
@@ -17,7 +16,7 @@ export const NoteCard = ({ id, title, tags }: NoteCardProps) => {
           className="align-items-center justify-content-center h-100"
         >
           <span className="fs-5">{title}</span>
-          {tags.length && (
+          {tags.length ? (
             <Stack
               gap={1}
               direction="horizontal"
@@ -29,7 +28,7 @@ export const NoteCard = ({ id, title, tags }: NoteCardProps) => {
                 </Badge>
               ))}
             </Stack>
-          )}
+          ) : null}
         </Stack>
       </Card.Body>
     </Card>

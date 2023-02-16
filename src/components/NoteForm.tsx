@@ -1,9 +1,10 @@
-import React, { FormEvent, useRef, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 import { Form, Stack, Row, Col, Button } from "react-bootstrap";
 import CreatableReactSelect from "react-select/creatable";
 import { Link, useNavigate } from "react-router-dom";
-import { NoteFormProps, Tag } from "./types";
+import { Tag } from "../types";
 import { v4 as uuidV4 } from "uuid";
+import { NoteFormProps } from "./types";
 
 export const NoteForm = ({
   onSubmit,
