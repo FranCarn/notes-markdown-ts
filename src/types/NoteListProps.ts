@@ -6,4 +6,6 @@ import { Tag } from "./Tag";
 export type NoteListProps = {
   availableTags: Tag[];
   notes: NoteCardProps[];
+  onDeleteTag: (id: string) => void;
+  onUpdateTag: (id: string, label: string) => void;
 };

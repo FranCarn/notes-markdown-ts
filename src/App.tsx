@@ -15,6 +15,7 @@ import { EditNote } from "./EditNote";
 function App() {
   const [notes, setNotes] = useLocalStorage<RawNote[]>("NOTES", []);
   const [tags, setTags] = useLocalStorage<Tag[]>("TAGS", []);
+
   const notesWithTags = useMemo(() => {
     return notes.map((note) => {
       return {
@@ -32,9 +33,7 @@ function App() {
       ];
     });
   }
-  function onAddTag(tag: Tag) {
-    setTags((prev) => [...prev, tag]);
-  }
+
   function onUpdateNote(id: string, { tags, ...data }: NoteData) {
     setNotes((prevNotes) => {
       return prevNotes.map((note) => {
@@ -45,12 +44,45 @@ function App() {
     });
   }
 
+  function onDeleteNote(id: string) {
+    setNotes((prevNotes) => {
+      return prevNotes.filter((note) => note.id !== id);
+    });
+  }
+
+  function onAddTag(tag: Tag) {
+    setTags((prev) => [...prev, tag]);
+  }
+
+  function onUpdateTag(id: string, label: string) {
+    console.log("onUpdateTag called with id:", id, "and label:", label);
+    setTags((prevTags) => {
+      return prevTags.map((tag) => {
+        if (tag && tag.id === id) return { ...tag, label };
+        return tag;
+      });
+    });
+  }
+
+  function onDeleteTag(id: string) {
+    setTags((prevTags) => {
+      return prevTags.filter((tag) => tag.id !== id);
+    });
+  }
+
   return (
     <Container className="my-4">
       <Routes>
         <Route
           path="/"
-          element={<NoteList availableTags={tags} notes={notesWithTags} />}
+          element={
+            <NoteList
+              availableTags={tags}
+              notes={notesWithTags}
+              onUpdateTag={onUpdateTag}
+              onDeleteTag={onDeleteTag}
+            />
+          }
         />
         <Route
           path="/new"
@@ -63,7 +95,7 @@ function App() {
           }
         />
         <Route path="/:id" element={<NoteLayout notes={notesWithTags} />}>
-          <Route index element={<Note />} />
+          <Route index element={<Note onDelete={onDeleteNote} />} />
           <Route
             path="edit"
             element={

@@ -2,7 +2,7 @@ import React from "react";
 import { Badge, Card, Stack } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { NoteCardProps } from "./types";
-import styles from "./noteList.module.css";
+import styles from "./styles/noteList.module.css";
 
 export const NoteCard = ({ id, title, tags }: NoteCardProps) => {
   return (
