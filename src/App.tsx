@@ -21,7 +21,7 @@ function App() {
   } = useApp();
 
   return (
-    <Container className="my-4">
+    <Container className="my-4 container">
       <Routes>
         <Route
           path="/"
