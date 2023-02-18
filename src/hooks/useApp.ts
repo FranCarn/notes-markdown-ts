@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { NoteData, RawNote, Tag } from "../types";
+import { NoteData, RawNote, Tag } from "../models";
 import { useLocalStorage } from "./useLocalStorage";
 import { v4 as uuidV4 } from "uuid";
 
