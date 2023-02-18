@@ -1,6 +1,12 @@
 import { Button, Col, Form, Modal, Row, Stack } from "react-bootstrap";
-import { Tag } from "../../../types";
-import { EditTagsModalProps } from "../types/EditTagsModalProps";
+import { Tag } from "../../../models";
+import { NoteListProps } from "../NoteList";
+
+type EditTagsModalProps = {
+  availableTags: Tag[];
+  show: boolean;
+  handleClose: () => void;
+} & NoteListProps;
 
 export const EditTagsModal = ({
   availableTags,

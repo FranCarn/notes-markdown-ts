@@ -2,10 +2,16 @@ import { useState, useMemo } from "react";
 import { Button, Col, Form, Row, Stack } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ReactSelect from "react-select";
+import { Tag } from "../../models";
 import { EditTagsModal } from "./components/EditTagsModal";
-import { NoteCard } from "./components/NoteCard";
-import { Tag } from "../../types";
-import { NoteListProps } from "./types/NoteListProps";
+import { NoteCard, NoteCardProps } from "./components/NoteCard";
+
+export type NoteListProps = {
+  availableTags: Tag[];
+  notes?: NoteCardProps[];
+  onDeleteTag: (id: string) => void;
+  onUpdateTag: (id: string, label: string) => void;
+};
 
 export const NoteList = ({
   availableTags,

@@ -2,9 +2,14 @@ import { FormEvent, useRef, useState } from "react";
 import { Form, Stack, Row, Col, Button } from "react-bootstrap";
 import CreatableReactSelect from "react-select/creatable";
 import { Link, useNavigate } from "react-router-dom";
-import { Tag } from "../types";
 import { v4 as uuidV4 } from "uuid";
-import { NoteFormProps } from "./types";
+import { NoteData, Tag } from "../models";
+
+export type NoteFormProps = {
+  onSubmit: (data: NoteData) => void;
+  onAddTag: (tag: Tag) => void;
+  availableTags: Tag[];
+} & Partial<NoteData>;
 
 export const NoteForm = ({
   onSubmit,

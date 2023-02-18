@@ -2,7 +2,11 @@ import { Badge, Button, Col, Row, Stack } from "react-bootstrap";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { Link, useNavigate } from "react-router-dom";
 import { useNote } from "../../hooks/useNote";
-import { NoteProps } from "./types/NoteProps";
+import { Tag } from "../../models";
+
+type NoteProps = {
+  onDelete: (id: string) => void;
+};
 
 export const Note = ({ onDelete }: NoteProps) => {
   const { title, tags, id, markdown } = useNote();
@@ -14,7 +18,7 @@ export const Note = ({ onDelete }: NoteProps) => {
           <h1>{title}</h1>
           {tags.length && (
             <Stack gap={1} direction="horizontal" className="flex-wrap">
-              {tags.map((tag) => (
+              {tags.map((tag: Tag) => (
                 <Badge key={tag.id} className="text-truncate">
                   {tag.label}
                 </Badge>
