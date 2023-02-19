@@ -45,7 +45,7 @@ export const NoteList = ({
         <Col xs="auto">
           <Stack gap={2} direction="horizontal">
             <Link to={"/new"}>
-              <Button variant="primary">Create</Button>
+              <Button variant="outline-light">Create</Button>
             </Link>
             <Button
               variant="outline-secondary"
@@ -72,6 +72,7 @@ export const NoteList = ({
             <Form.Group controlId="tags">
               <Form.Label>Tags</Form.Label>
               <ReactSelect
+                className="text-black"
                 value={selectedTags.map((tag) => {
                   return {
                     label: tag.label,

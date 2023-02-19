@@ -19,7 +19,10 @@ export const Note = ({ onDelete }: NoteProps) => {
           {tags.length && (
             <Stack gap={1} direction="horizontal" className="flex-wrap">
               {tags.map((tag: Tag) => (
-                <Badge key={tag.id} className="text-truncate">
+                <Badge
+                  key={tag.id}
+                  className="text-truncate bg-light text-dark"
+                >
                   {tag.label}
                 </Badge>
               ))}
@@ -29,7 +32,7 @@ export const Note = ({ onDelete }: NoteProps) => {
         <Col xs="auto">
           <Stack gap={2} direction="horizontal">
             <Link to={`/${id}/edit`}>
-              <Button variant="primary">Edit</Button>
+              <Button variant="outline-light">Edit</Button>
             </Link>
             <Button
               variant="outline-danger"

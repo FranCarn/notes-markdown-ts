@@ -48,6 +48,7 @@ export const NoteForm = ({
             <Form.Group controlId="tags">
               <Form.Label>Tags</Form.Label>
               <CreatableReactSelect
+                className="text-black"
                 onCreateOption={(label) => {
                   const newTag = {
                     id: uuidV4(),
@@ -94,7 +95,7 @@ export const NoteForm = ({
           />
         </Form.Group>
         <Stack direction="horizontal" gap={2} className="justify-content-end">
-          <Button type="submit" variant="primary">
+          <Button type="submit" variant="outline-light">
             Save
           </Button>
           <Link to="..">

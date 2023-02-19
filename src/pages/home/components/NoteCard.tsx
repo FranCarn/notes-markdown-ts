@@ -21,7 +21,7 @@ export const NoteCard = ({ id, title, tags }: NoteCardProps) => {
           gap={2}
           className="align-items-center justify-content-center h-100"
         >
-          <span className="fs-5">{title}</span>
+          <span className="fs-5 text-dark">{title}</span>
           {tags.length ? (
             <Stack
               gap={1}
